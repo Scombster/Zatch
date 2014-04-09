@@ -31,8 +31,8 @@ public class Falling : MonoBehaviour {
 		{
 			Speed = 0.2f;	
 
-		}
-		*/
+		}*/
+
 
 	}
 
