@@ -21,6 +21,8 @@ public class Falling : MonoBehaviour {
 		velocity.x = horz;
 		rigidbody2D.velocity = velocity;
 		*/
+
+		//Should be deltatime because of FPS
 		if (MoveCD < Time.time)
 		{
 			transform.position += new Vector3 (0, -1f, 0);
