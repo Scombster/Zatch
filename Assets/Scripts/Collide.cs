@@ -9,7 +9,7 @@ public class Collide : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
-	//	GameObject.DestroyObject (gameObject);
+
 
 	
 	
@@ -18,16 +18,9 @@ public class Collide : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+				if (Input.GetKey (KeyCode.Space)) {
+						Destroy (gameObject);
+				}
 
-
-
-
-
-	}
-
-	//void OnTriggerStay2D (other: Collider2D){
-
-
-	
-//	}
+		}
 }
