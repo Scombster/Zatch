@@ -40,6 +40,9 @@ public class Falling : MonoBehaviour {
 		if(Input.GetKeyDown("space")){
 			//hard drop, just an idea to use MoveTowards
 			//transform.position = Vector3.MoveTowards(transform.position, target.position, hardSpeed*Time.deltaTime);
+
+			//Simple Harddrop mechanic
+			transform.position += new Vector3(0,-15f,0);
 		}
 
 

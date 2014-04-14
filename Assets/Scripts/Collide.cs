@@ -18,9 +18,12 @@ public class Collide : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-				if (Input.GetKey (KeyCode.Space)) {
+				if (Input.GetKey (KeyCode.Delete)) {
 						Destroy (gameObject);
 				}
+
+		//Start of tracking and displaying Score
+		//guiText.text = "This is the Score";
 	}
 
 	//Collision between objects with same tag
@@ -32,5 +35,6 @@ public class Collide : MonoBehaviour {
 				score++;
 			}
 		}
+
 		
 }
