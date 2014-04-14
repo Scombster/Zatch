@@ -21,7 +21,7 @@ public class Spawn : MonoBehaviour {
 	}
 
 	void SpawnBlock(){
-		activeBlock = (Falling)Instantiate(blocks[Random.Range(0, blocks.Length)], new Vector3 (0, 15, 0), Quaternion.identity);
+		activeBlock = (Falling)Instantiate(blocks[Random.Range(0, blocks.Length)], new Vector3 (0, 12, 0), Quaternion.identity);
 	}
 }
 

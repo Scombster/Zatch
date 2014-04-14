@@ -34,7 +34,7 @@ public class Falling : MonoBehaviour {
 			//rotate
 			transform.Rotate (Vector3.forward * 90);
 		}
-		if(Input.GetKeyDown("down")){
+		if(Input.GetKey("down")){
 			transform.position += new Vector3(0,-1f,0);
 		}
 		if(Input.GetKeyDown("space")){
@@ -53,7 +53,7 @@ public class Falling : MonoBehaviour {
 		//Should be deltatime because of FPS?
 		if (MoveCD < Time.time)
 		{
-			transform.position += new Vector3(0, -1f, 0);
+			transform.position += new Vector3(0, -1, 0);
 			Move ();
 		}
 		//
