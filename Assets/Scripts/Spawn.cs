@@ -3,26 +3,36 @@ using System.Collections;
 
 public class Spawn : MonoBehaviour {
 
-	public Falling[] blocks;
-	public Falling activeBlock;
+	public GameObject spawnBrick;
+	public Controller activeBlock;
+
 
 
 
 	void Start () {
-	
+		//This is just here to spawn a single "SpawnBrick"
+		SpawnBlock ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 
-		if ((activeBlock == null) || (activeBlock.enabled == false))
-						SpawnBlock ();
+
+		//This if-statement doesn't work yet since it doesn't track the
+		//active "spawnBrick" wich should be set to activeBlock.
+		//This is very urgent!!!
+		/*
+		if ((activeBlock == null) || (activeBlock.enabled == false)){
+			SpawnBlock ();
+		}
+
+		*/
 	}
 
 	void SpawnBlock(){
-		activeBlock = (Falling)Instantiate(blocks[Random.Range(0, blocks.Length)], new Vector3 (-1.99f, 10.69f, 0), Quaternion.identity);
+		activeBlock = (Controller)Instantiate(spawnBrick,new Vector3 (-1.99f, 10.69f, 0), Quaternion.identity);
+
 	}
 }
 
-//testing comment 
