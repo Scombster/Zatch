@@ -42,6 +42,8 @@ public class Controller : MonoBehaviour {
 			//Simple Harddrop mechanic
 			transform.position += new Vector3(0,-15f,0);
 		}
+
+		//"Resets" the game by destroying all bricks
 		if (Input.GetKey (KeyCode.Delete)) {
 			Destroy (gameObject);
 		}
