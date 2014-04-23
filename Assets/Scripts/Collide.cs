@@ -4,7 +4,8 @@ using System.Collections;
 public class Collide : MonoBehaviour {
 	
 	//private ComboText comboColor;
-	
+
+	private Level count;
 	private ScoreController score;
 	private ScoreController comboBlue;
 	private ScoreController comboGreen;
@@ -42,10 +43,12 @@ public class Collide : MonoBehaviour {
 			if(comboBlue.comboBlue > 2)
 			{
 				score.score += 2;
+				count.count += 0.5f;
 			}
 			else
 			{
 				score.score += 1;
+				count.count +=0.5f;
 			}
 			
 			//Resets the other colors combo counters
@@ -63,10 +66,12 @@ public class Collide : MonoBehaviour {
 			if(comboGreen.comboGreen > 2)
 			{
 				score.score += 2;
+				count.count +=0.5f;
 			}
 			else
 			{
 				score.score += 1;
+				count.count +=0.5f;
 			}
 			
 			comboBlue.comboBlue = 0;
@@ -83,10 +88,12 @@ public class Collide : MonoBehaviour {
 			if(comboOrange.comboOrange > 2)
 			{
 				score.score += 2;
+				count.count +=0.5f;
 			}
 			else
 			{
 				score.score += 1;
+				count.count +=0.5f;
 			}
 			
 			comboBlue.comboBlue = 0;
@@ -103,10 +110,12 @@ public class Collide : MonoBehaviour {
 			if(comboYellow.comboYellow > 2)
 			{
 				score.score += 2;
+				count.count +=0.5f;
 			}
 			else
 			{
 				score.score += 1;
+				count.count +=0.5f;
 			}
 			
 			comboBlue.comboBlue = 0;
@@ -123,10 +132,12 @@ public class Collide : MonoBehaviour {
 			if(comboOrange.comboOrange > 2)
 			{
 				score.score += 2;
+				count.count +=0.5f;
 			}
 			else
 			{
 				score.score += 1;
+				count.count +=0.5f;
 			}
 			
 			comboBlue.comboBlue = 0;
