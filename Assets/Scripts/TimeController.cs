@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class TimeController : MonoBehaviour {
-	
+
+	private Level loss;
 	private float time = 60.0f;
-	
+
 	// Use this for initialization
 	void Start () {
 		
@@ -21,7 +22,7 @@ public class TimeController : MonoBehaviour {
 		}
 		else
 		{
-			guiText.text = "GAME OVER! / NEXT LEVEL!";
+			loss.loss = true;
 		}
 		
 	}
