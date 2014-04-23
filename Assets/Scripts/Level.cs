@@ -27,7 +27,7 @@ public class Level : MonoBehaviour {
 			guiText.text = "GAME OVER";
 		}
 
-		if (Win == true)
+		if (win == true)
 		{
 			guiText.text = "YOU WIN!";
 		}
