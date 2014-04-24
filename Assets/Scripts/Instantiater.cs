@@ -4,22 +4,40 @@ using System.Collections;
 public class Instantiater : MonoBehaviour {
 
 	//Array that holds the coloured blocks
-	public BrickCont[] blocks;
+	public GameObject[] blocks;
 	//GameObjects for the different spawns needed 
 	public GameObject b1;
 	public GameObject b2;
 	public GameObject b3;
 
+	//1
+	float MoveCD = 0f;
+	float Speed = 0.5f;
 
-		void Start () {
+
+	void Start () {
 	
-		//I guess this will be just fine leaving like this
 		CreateBlock();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//2
+		if (MoveCD < Time.time && this.enabled == true)
+		{
+			transform.position += new Vector3(0, -1, 0);
+			Move ();
+		}
+
+
+		if(b1.gameObject.GetComponent<Collide>().hasHitSomething == true){
+
+			GetComponent<Controller>().enabled = false;
+			this.enabled = false;
+
+		}
+
 
 
 	}
@@ -37,9 +55,25 @@ public class Instantiater : MonoBehaviour {
 		b1.transform.parent = this.gameObject.transform;
 		b2.transform.parent = this.gameObject.transform;
 		b3.transform.parent = this.gameObject.transform;
-		
+
 
 
 
 	}
+
+
+
+	void OnCollisionEnter2D(Collision2D collision){
+
+	}
+
+	
+	void Move()
+	{
+		MoveCD = Speed + Time.time;
+		
+	}
+
+
+
 }

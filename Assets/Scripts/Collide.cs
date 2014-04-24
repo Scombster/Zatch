@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Collide : MonoBehaviour {
-	
+	public bool hasHitSomething = false;
+
 	//private ComboText comboColor;
 
 	private Level count;
@@ -29,12 +30,41 @@ public class Collide : MonoBehaviour {
 	{			
 
 	}
+
+
+
+
+
+
 	
-	//Detects collison between bricks. 
-	//If the colors match it updates score and destroy the colliding bricks.
+
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		
+
+		 
+		//If-statement that only makes it possible for the brick to collide with objects under it. 
+		if(other.contacts.Length > 0)
+		{
+			ContactPoint2D contact = other.contacts[0];
+			if(Vector3.Dot(contact.normal, Vector3.up) > 0.5)
+			{
+				Debug.Log("hej");
+				//Something needs to tell Instatiater that this object has collided!
+				hasHitSomething = true;
+
+				//this is legacy code
+
+
+			}
+		}
+
+
+
+
+
+
+		//Detects collison between bricks. 
+		//If the colors match it updates score and destroy the colliding bricks.
 		if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue")
 		{
 			Destroy(gameObject);
