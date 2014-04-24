@@ -22,7 +22,7 @@ public class Level : MonoBehaviour {
 			count = 0.0f;
 		}
 
-		if (loss = true)
+		if (loss == true)
 		{
 			guiText.text = "GAME OVER";
 		}
