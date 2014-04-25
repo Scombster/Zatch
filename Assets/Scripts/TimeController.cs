@@ -3,8 +3,11 @@ using System.Collections;
 
 public class TimeController : MonoBehaviour {
 
+	private BackgroundController bgcont;
+
+
 	private Level loss;
-	private float time = 60.0f;
+	private float time = 10.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +22,7 @@ public class TimeController : MonoBehaviour {
 		if(time > 0)
 		{
 			guiText.text = "Time Remaining: " + (int)time;
+
 		}
 		else
 		{
