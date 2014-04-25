@@ -4,12 +4,9 @@ using System.Collections;
 public class Collide : MonoBehaviour {
 
 	private ScoreController score;
-<<<<<<< HEAD
-	public ScoreController comboColor;
 	public string Gameover;
-=======
+
 	private ScoreController comboColor;
->>>>>>> FETCH_HEAD
 
 	private Level count;
 	public bool hasHitSomething = false;
