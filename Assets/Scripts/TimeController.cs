@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TimeController : MonoBehaviour {
 
-	private Level loss;
+	private Level win; 
 	private float time = 60.0f;
 
 	// Use this for initialization
@@ -22,7 +22,7 @@ public class TimeController : MonoBehaviour {
 		}
 		else
 		{
-			loss.loss = true;
+			win.win = true;
 		}
 		
 	}
