@@ -60,7 +60,7 @@ public class Collide : MonoBehaviour {
 
 
 
-
+		if(hasHitSomething == true){
 
 
 		//Detects collison between bricks. 
@@ -177,7 +177,7 @@ public class Collide : MonoBehaviour {
 		}
 
 
-		
+		}
 	}
 	
 	
