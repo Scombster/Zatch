@@ -2,15 +2,9 @@
 using System.Collections;
 
 public class Controller : MonoBehaviour {
-	//This is part of harddrop
-	//Target pointing to ButtomLayer
-	//public Transform target;
-	//Hard drop speed
-	//float hardSpeed = 1.5f;
 
-
-
-
+	//Controlling how fast the keyDown will be.
+	private float lastDown, timeBetweenDowns = 0.5f;
 
 
 	// Use this for initialization
@@ -33,7 +27,11 @@ public class Controller : MonoBehaviour {
 			transform.Rotate (Vector3.forward * 90);
 		}
 		if(Input.GetKey("down")){
-			transform.position += new Vector3(0,-1f,0);
+			if(Time.time - lastDown > timeBetweenDowns){
+				lastDown = Time.time;
+				transform.position += new Vector3(0,-1f,0);
+			}
+
 		}
 		if(Input.GetKeyDown("space")){
 			//hard drop, just an idea to use MoveTowards
@@ -50,5 +48,12 @@ public class Controller : MonoBehaviour {
 
 
 	}
+
+
+
+
+
+
+
 
 }
