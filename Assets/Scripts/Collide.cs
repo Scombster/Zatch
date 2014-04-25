@@ -4,13 +4,17 @@ using System.Collections;
 public class Collide : MonoBehaviour {
 
 	private ScoreController score;
-	public string Gameover;
-
 	private ScoreController comboColor;
 
-	private Level count;
-	public bool hasHitSomething = false;
+	public GameObject[] gameObjectsBlue;
+	public GameObject[] gameObjectsGreen;
+	public GameObject[] gameObjectsOrange;
+	public GameObject[] gameObjectsYellow;
+	public GameObject[] gameObjectsPurple;
 
+	public bool hasHitSomething = false;
+	public string Gameover;
+	private Level count;
 
 	void Start () 
 	{
@@ -21,11 +25,16 @@ public class Collide : MonoBehaviour {
 	
 	void Update () 
 	{			
-
+		gameObjectsBlue = GameObject.FindGameObjectsWithTag ("Blue");
+		gameObjectsGreen = GameObject.FindGameObjectsWithTag ("Green");
+		gameObjectsOrange = GameObject.FindGameObjectsWithTag ("Orange");
+		gameObjectsYellow = GameObject.FindGameObjectsWithTag ("Yellow");
+		gameObjectsPurple = GameObject.FindGameObjectsWithTag ("Purple");
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
 	{			 
+
 		//If-statement that only makes it possible for the brick to collide with objects under it. 
 		if(other.contacts.Length > 0)
 		{
@@ -46,9 +55,7 @@ public class Collide : MonoBehaviour {
 		}
 
 
-
-
-
+		
 		if(hasHitSomething == true){
 
 		//Detects collison between bricks. 
@@ -56,77 +63,122 @@ public class Collide : MonoBehaviour {
 
 			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue" && comboColor.comboColor != 1)
 			{
+				for(int i = 0; i < gameObjectsBlue.Length; i++)
+				{
 				Destroy(gameObject);
 				score.score += 1;
 				comboColor.comboColor = 1;
+				}
+
 				count.count += 0.5f;
 			}
 
 			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue" && comboColor.comboColor == 1)
 			{
-				Destroy(gameObject);
-				score.score += 2;
+				for(int i = 0; i < gameObjectsBlue.Length; i++)
+				{
+					Destroy(gameObject);
+					score.score += 2;
+					comboColor.comboColor = 1;
+				}
+				
 				count.count += 0.5f;
 			}
 		
 			if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green" && comboColor.comboColor != 2)
 			{
-				Destroy(gameObject);
-				score.score += 1;
-				comboColor.comboColor = 2;
+				for(int i = 0; i < gameObjectsGreen.Length; i++)
+				{
+					Destroy(gameObject);
+					score.score += 1;
+					comboColor.comboColor = 2;
+				}
+				
 				count.count += 0.5f;
 			}
 			
 			if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green" && comboColor.comboColor == 2)
 			{
-				Destroy(gameObject);
-				score.score += 2;
+				for(int i = 0; i < gameObjectsGreen.Length; i++)
+				{
+					Destroy(gameObject);
+					score.score += 2;
+					comboColor.comboColor = 2;
+				}
+				
 				count.count += 0.5f;
 			}
 
 			if(this.gameObject.tag == "Orange" && other.gameObject.tag == "Orange" && comboColor.comboColor != 3)
 			{
-				Destroy(gameObject);
-				score.score += 1;
-				comboColor.comboColor = 3;
+				for(int i = 0; i < gameObjectsOrange.Length; i++)
+				{
+					Destroy(gameObject);
+					score.score += 1;
+					comboColor.comboColor = 3;
+				}
+				
 				count.count += 0.5f;
 			}
 			
 			if(this.gameObject.tag == "Orange" && other.gameObject.tag == "Orange" && comboColor.comboColor == 3)
 			{
-				Destroy(gameObject);
-				score.score += 2;
+				for(int i = 0; i < gameObjectsOrange.Length; i++)
+				{
+					Destroy(gameObject);
+					score.score += 2;
+					comboColor.comboColor = 3;
+				}
+				
 				count.count += 0.5f;
 			}
 
 			if(this.gameObject.tag == "Yellow" && other.gameObject.tag == "Yellow" && comboColor.comboColor != 4)
 			{
-				Destroy(gameObject);
-				score.score += 1;
-				comboColor.comboColor = 4;
+				for(int i = 0; i < gameObjectsYellow.Length; i++)
+				{
+					Destroy(gameObject);
+					score.score += 1;
+					comboColor.comboColor = 4;
+				}
+				
 				count.count += 0.5f;
 			}
 			
 			if(this.gameObject.tag == "Yellow" && other.gameObject.tag == "Yellow" && comboColor.comboColor == 4)
 			{
-				Destroy(gameObject);
-				score.score += 2;
+				for(int i = 0; i < gameObjectsYellow.Length; i++)
+				{
+					Destroy(gameObject);
+					score.score += 1;
+					comboColor.comboColor = 4;
+				}
+				
 				count.count += 0.5f;
 			}
 
 			if(this.gameObject.tag == "Purple" && other.gameObject.tag == "Purple" && comboColor.comboColor != 5)
 			{
-				Destroy(gameObject);
-				score.score += 1;
-				comboColor.comboColor = 5;
+				for(int i = 0; i < gameObjectsPurple.Length; i++)
+				{
+					Destroy(gameObject);
+					score.score += 1;
+					comboColor.comboColor = 5;
+				}
+				
 				count.count += 0.5f;
 			}
 			
 			if(this.gameObject.tag == "Purple" && other.gameObject.tag == "Purple" && comboColor.comboColor == 5)
 			{
-				Destroy(gameObject);
-				score.score += 2;
-				count.count += 0.5f;
+				for(int i = 0; i < gameObjectsPurple.Length; i++)
+				{
+					Destroy(gameObject);
+					score.score += 2;
+					comboColor.comboColor = 5;
+				}
+				
+				count.count += 0.5f;;
 			}
 		}
 	}

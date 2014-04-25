@@ -32,7 +32,7 @@ public class Level : MonoBehaviour {
 
 		if (win == true)
 		{
-			guiText.text = "YOU WIN!";
+			guiText.text = "Level over!";
 			//if (GUI.Box (20,40,60,80), Next Level)){
 				//Destroy (Background_picture);
 		//	}
