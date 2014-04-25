@@ -40,6 +40,15 @@ public class Collide : MonoBehaviour {
 
 			}
 		}
+<<<<<<< HEAD
+=======
+
+
+
+		if(hasHitSomething == true){
+
+
+>>>>>>> d2a2f5b15279ff9eb8227936d2e657bf933a79e9
 		//Detects collison between bricks. 
 		//If the colors match it updates score and destroy the colliding bricks.
 		if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue")
@@ -127,7 +136,9 @@ public class Collide : MonoBehaviour {
 				count.count +=0.5f;
 			}
 		}
-		
+
+
+		}
 	}
 	
 	
