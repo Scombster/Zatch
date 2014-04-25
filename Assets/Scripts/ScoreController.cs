@@ -16,6 +16,7 @@ public class ScoreController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		guiText.color = Color.white;
 		guiText.text = "Score: " + score;
 		
 	}

@@ -4,7 +4,7 @@ using System.Collections;
 public class Collide : MonoBehaviour {
 
 	private ScoreController score;
-	public ScoreController comboColor;
+	private ScoreController comboColor;
 
 	private Level count;
 	public bool hasHitSomething = false;
@@ -43,94 +43,79 @@ public class Collide : MonoBehaviour {
 		//Detects collison between bricks. 
 		//If the colors match it updates score and destroy the colliding bricks.
 
-			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue")
+			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue" && comboColor.comboColor != 1)
 			{
 				Destroy(gameObject);
-			
-				if(comboColor.comboColor == 1)
-				{
-					score.score += 2;
-					count.count += 0.5f;
-				}
-				else
-				{
-					score.score += 1;
-					count.count +=0.5f;
+				score.score += 1;
+				comboColor.comboColor = 1;
+				count.count += 0.5f;
+			}
 
-					comboColor.comboColor = 1;
-				}
+			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue" && comboColor.comboColor == 1)
+			{
+				Destroy(gameObject);
+				score.score += 2;
+				count.count += 0.5f;
 			}
 		
-			if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green")
+			if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green" && comboColor.comboColor != 2)
 			{
 				Destroy(gameObject);
-			
-				if(comboColor.comboColor == 2)
-				{
-					score.score += 2;
-					count.count +=0.5f;
-				}
-				else
-				{
-					score.score += 1;
-					count.count +=0.5f;
-
-					comboColor.comboColor = 2;
-				}
+				score.score += 1;
+				comboColor.comboColor = 2;
+				count.count += 0.5f;
 			}
-		
-			if(this.gameObject.tag == "Orange" && other.gameObject.tag == "Orange")
-			{
-				Destroy(gameObject);
 			
-				if(comboColor.comboColor == 3)
-				{
-					score.score += 2;
-					count.count +=0.5f;
-				}
-				else
-				{
-					score.score += 1;
-					count.count +=0.5f;
-
-					comboColor.comboColor = 3;
-				}
-			}
-		
-			if(this.gameObject.tag == "Yellow" && other.gameObject.tag == "Yellow")
+			if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green" && comboColor.comboColor == 2)
 			{
 				Destroy(gameObject);
+				score.score += 2;
+				count.count += 0.5f;
+			}
+
+			if(this.gameObject.tag == "Orange" && other.gameObject.tag == "Orange" && comboColor.comboColor != 3)
+			{
+				Destroy(gameObject);
+				score.score += 1;
+				comboColor.comboColor = 3;
+				count.count += 0.5f;
+			}
 			
-				if(comboColor.comboColor == 4)
-				{
-					score.score += 2;
-					count.count +=0.5f;
-				}
-				else
-				{
-					score.score += 1;
-					count.count +=0.5f;
-
-					comboColor.comboColor = 4;
-				}
-			}
-		
-			if(this.gameObject.tag == "Purple" && other.gameObject.tag == "Purple")
+			if(this.gameObject.tag == "Orange" && other.gameObject.tag == "Orange" && comboColor.comboColor == 3)
 			{
 				Destroy(gameObject);
+				score.score += 2;
+				count.count += 0.5f;
+			}
 
-				if(comboColor.comboColor == 5)
-				{
-					score.score += 2;
-					count.count +=0.5f;
-				}
-				else
-				{
-					score.score += 1;
-					count.count +=0.5f;
+			if(this.gameObject.tag == "Yellow" && other.gameObject.tag == "Yellow" && comboColor.comboColor != 4)
+			{
+				Destroy(gameObject);
+				score.score += 1;
+				comboColor.comboColor = 4;
+				count.count += 0.5f;
+			}
+			
+			if(this.gameObject.tag == "Yellow" && other.gameObject.tag == "Yellow" && comboColor.comboColor == 4)
+			{
+				Destroy(gameObject);
+				score.score += 2;
+				count.count += 0.5f;
+			}
 
-					comboColor.comboColor = 5;
-				}
+			if(this.gameObject.tag == "Purple" && other.gameObject.tag == "Purple" && comboColor.comboColor != 5)
+			{
+				Destroy(gameObject);
+				score.score += 1;
+				comboColor.comboColor = 5;
+				count.count += 0.5f;
+			}
+			
+			if(this.gameObject.tag == "Purple" && other.gameObject.tag == "Purple" && comboColor.comboColor == 5)
+			{
+				Destroy(gameObject);
+				score.score += 2;
+				count.count += 0.5f;
 			}
 		}
 	}
