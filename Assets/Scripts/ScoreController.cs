@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class ScoreController : MonoBehaviour {
-	
+
+	public float count = 0;
 	public int score = 0;
 	public int comboColor = 0;
 

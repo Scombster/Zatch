@@ -6,6 +6,8 @@ public class Level : MonoBehaviour {
 	public float count = 0.0f;
 	public bool win = false;
 	public bool loss = false;
+	public string Gameover;
+	public GameObject Background_picture;
 
 	// Use this for initialization
 	void Start () {
@@ -24,12 +26,16 @@ public class Level : MonoBehaviour {
 
 		if (loss == true)
 		{
-			guiText.text = "GAME OVER";
+			Application.LoadLevel (Gameover);
+			Debug.Log ("click");
 		}
 
 		if (win == true)
 		{
 			guiText.text = "YOU WIN!";
+			//if (GUI.Box (20,40,60,80), Next Level)){
+				//Destroy (Background_picture);
+		//	}
 		}
 			
 	}
