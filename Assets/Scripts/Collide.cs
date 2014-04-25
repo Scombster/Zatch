@@ -2,12 +2,13 @@
 using System.Collections;
 
 public class Collide : MonoBehaviour {
-	public bool hasHitSomething = false;
 
+	private ScoreController score;
 	public ScoreController comboColor;
 
 	private Level count;
-	private ScoreController score;
+	public bool hasHitSomething = false;
+
 
 	void Start () 
 	{
@@ -22,9 +23,7 @@ public class Collide : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
-	{
-
-		 
+	{			 
 		//If-statement that only makes it possible for the brick to collide with objects under it. 
 		if(other.contacts.Length > 0)
 		{
@@ -36,110 +35,103 @@ public class Collide : MonoBehaviour {
 				hasHitSomething = true;
 
 				//this is legacy code
-
-
 			}
 		}
-<<<<<<< HEAD
-=======
-
-
 
 		if(hasHitSomething == true){
 
-
->>>>>>> d2a2f5b15279ff9eb8227936d2e657bf933a79e9
 		//Detects collison between bricks. 
 		//If the colors match it updates score and destroy the colliding bricks.
-		if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue")
-		{
-			Destroy(gameObject);
-			comboColor.comboColor = 1;
-			
-			if(comboColor.comboColor == 1)
-			{
-				score.score += 2;
-				count.count += 0.5f;
-			}
-			else
-			{
-				score.score += 1;
-				count.count +=0.5f;
-			}
-		}
-		
-		if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green")
-		{
-			Destroy(gameObject);
-			comboColor.comboColor = 2;
-			
-			if(comboColor.comboColor == 2)
-			{
-				score.score += 2;
-				count.count +=0.5f;
-			}
-			else
-			{
-				score.score += 1;
-				count.count +=0.5f;
-			}
 
-		}
-		
-		if(this.gameObject.tag == "Orange" && other.gameObject.tag == "Orange")
-		{
-			Destroy(gameObject);
-			comboColor.comboColor = 3;
+			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue")
+			{
+				Destroy(gameObject);
 			
-			if(comboColor.comboColor == 3)
-			{
-				score.score += 2;
-				count.count +=0.5f;
-			}
-			else
-			{
-				score.score += 1;
-				count.count +=0.5f;
-			}
-		}
-		
-		if(this.gameObject.tag == "Yellow" && other.gameObject.tag == "Yellow")
-		{
-			Destroy(gameObject);
-			comboColor.comboColor = 4;
-			
-			if(comboColor.comboColor == 4)
-			{
-				score.score += 2;
-				count.count +=0.5f;
-			}
-			else
-			{
-				score.score += 1;
-				count.count +=0.5f;
-			}
-		}
-		
-		if(this.gameObject.tag == "Purple" && other.gameObject.tag == "Purple")
-		{
-			Destroy(gameObject);
-			comboColor.comboColor = 5;
-			
-			if(comboColor.comboColor == 5)
-			{
-				score.score += 2;
-				count.count +=0.5f;
-			}
-			else
-			{
-				score.score += 1;
-				count.count +=0.5f;
-			}
-		}
+				if(comboColor.comboColor == 1)
+				{
+					score.score += 2;
+					count.count += 0.5f;
+				}
+				else
+				{
+					score.score += 1;
+					count.count +=0.5f;
 
+					comboColor.comboColor = 1;
+				}
+			}
+		
+			if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green")
+			{
+				Destroy(gameObject);
+			
+				if(comboColor.comboColor == 2)
+				{
+					score.score += 2;
+					count.count +=0.5f;
+				}
+				else
+				{
+					score.score += 1;
+					count.count +=0.5f;
 
+					comboColor.comboColor = 2;
+				}
+			}
+		
+			if(this.gameObject.tag == "Orange" && other.gameObject.tag == "Orange")
+			{
+				Destroy(gameObject);
+			
+				if(comboColor.comboColor == 3)
+				{
+					score.score += 2;
+					count.count +=0.5f;
+				}
+				else
+				{
+					score.score += 1;
+					count.count +=0.5f;
+
+					comboColor.comboColor = 3;
+				}
+			}
+		
+			if(this.gameObject.tag == "Yellow" && other.gameObject.tag == "Yellow")
+			{
+				Destroy(gameObject);
+			
+				if(comboColor.comboColor == 4)
+				{
+					score.score += 2;
+					count.count +=0.5f;
+				}
+				else
+				{
+					score.score += 1;
+					count.count +=0.5f;
+
+					comboColor.comboColor = 4;
+				}
+			}
+		
+			if(this.gameObject.tag == "Purple" && other.gameObject.tag == "Purple")
+			{
+				Destroy(gameObject);
+
+				if(comboColor.comboColor == 5)
+				{
+					score.score += 2;
+					count.count +=0.5f;
+				}
+				else
+				{
+					score.score += 1;
+					count.count +=0.5f;
+
+					comboColor.comboColor = 5;
+				}
+			}
 		}
 	}
-	
-	
 }
