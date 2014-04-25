@@ -3,16 +3,15 @@ using System.Collections;
 
 public class TimeController : MonoBehaviour {
 
-<<<<<<< HEAD
+
 	private BackgroundController bgcont;
 
 
 	private Level loss;
 	private float time = 10.0f;
-=======
+
 	private Level win; 
-	private float time = 60.0f;
->>>>>>> 5d78f3a1f3e5495c7f2c148e9b5085eb694589cb
+
 
 	// Use this for initialization
 	void Start () {
