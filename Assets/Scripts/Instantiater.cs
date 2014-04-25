@@ -31,7 +31,7 @@ public class Instantiater : MonoBehaviour {
 		}
 
 
-		if(b1.gameObject.GetComponent<Collide>().hasHitSomething == true){
+		if(b1.gameObject.GetComponent<Collide>().hasHitSomething == true || b2.gameObject.GetComponent<Collide>().hasHitSomething == true || b3.gameObject.GetComponent<Collide>().hasHitSomething == true){
 
 			GetComponent<Controller>().enabled = false;
 			this.enabled = false;

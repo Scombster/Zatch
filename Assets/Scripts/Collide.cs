@@ -175,6 +175,8 @@ public class Collide : MonoBehaviour {
 			comboOrange.comboOrange = 0;
 			comboYellow.comboYellow = 0;
 		}
+
+
 		
 	}
 	
