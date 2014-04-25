@@ -26,11 +26,10 @@ public class Controller : MonoBehaviour {
 			//rotate
 			transform.Rotate (Vector3.forward * 90);
 		}
-		if(Input.GetKey("down")){
-			if(Time.time - lastDown > timeBetweenDowns){
-				lastDown = Time.time;
-				transform.position += new Vector3(0,-1f,0);
-			}
+		if(Input.GetKeyDown("down")){
+
+			transform.position += new Vector3(0,-1f,0);
+
 
 		}
 		if(Input.GetKeyDown("space")){

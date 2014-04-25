@@ -5,6 +5,7 @@ public class Collide : MonoBehaviour {
 
 	private ScoreController score;
 	public ScoreController comboColor;
+	public string Gameover;
 
 	private Level count;
 	public bool hasHitSomething = false;
@@ -30,13 +31,22 @@ public class Collide : MonoBehaviour {
 			ContactPoint2D contact = other.contacts[0];
 			if(Vector3.Dot(contact.normal, Vector3.up) > 0.5)
 			{
-				Debug.Log("hej");
+				if(this.transform.position.y >= 8.69f){
+					Debug.Log("Maria");
+					Application.LoadLevel ("Gameover");
+
+				}
 				//Something needs to tell Instatiater that this object has collided!
 				hasHitSomething = true;
 
 				//this is legacy code
+			
 			}
 		}
+
+
+
+
 
 		if(hasHitSomething == true){
 
