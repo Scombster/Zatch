@@ -2,8 +2,10 @@
 using System.Collections;
 
 public class ComboText : MonoBehaviour {
-	
+
 	private ScoreController comboColor;
+	public AudioClip comboClip;
+	public bool combo = false;
 
 	// Use this for initialization
 	void Start () {
@@ -12,6 +14,12 @@ public class ComboText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if( combo == true)
+		{
+			audio.PlayOneShot(comboClip, 0.5F);
+			Debug.Log("click");
+		}
 
 		switch (comboColor.comboColor) 
 		{

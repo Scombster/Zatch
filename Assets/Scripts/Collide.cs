@@ -6,6 +6,8 @@ public class Collide : MonoBehaviour {
 	private ScoreController score;
 	private ScoreController comboColor;
 
+	public ComboText combo;
+
 	public GameObject[] gameObjectsBlue;
 	public GameObject[] gameObjectsGreen;
 	public GameObject[] gameObjectsOrange;
@@ -65,6 +67,7 @@ public class Collide : MonoBehaviour {
 			{
 				for(int i = 0; i < gameObjectsBlue.Length; i++)
 				{
+				combo.combo = true;
 				Destroy(gameObject);
 				score.score += 1;
 				comboColor.comboColor = 1;
@@ -77,6 +80,7 @@ public class Collide : MonoBehaviour {
 			{
 				for(int i = 0; i < gameObjectsBlue.Length; i++)
 				{
+					combo.combo = true;
 					Destroy(gameObject);
 					score.score += 2;
 					comboColor.comboColor = 1;
@@ -89,6 +93,7 @@ public class Collide : MonoBehaviour {
 			{
 				for(int i = 0; i < gameObjectsGreen.Length; i++)
 				{
+					combo.combo = true;
 					Destroy(gameObject);
 					score.score += 1;
 					comboColor.comboColor = 2;
@@ -101,6 +106,7 @@ public class Collide : MonoBehaviour {
 			{
 				for(int i = 0; i < gameObjectsGreen.Length; i++)
 				{
+					combo.combo = true;
 					Destroy(gameObject);
 					score.score += 2;
 					comboColor.comboColor = 2;
@@ -113,6 +119,7 @@ public class Collide : MonoBehaviour {
 			{
 				for(int i = 0; i < gameObjectsOrange.Length; i++)
 				{
+					combo.combo = true;
 					Destroy(gameObject);
 					score.score += 1;
 					comboColor.comboColor = 3;
@@ -125,6 +132,7 @@ public class Collide : MonoBehaviour {
 			{
 				for(int i = 0; i < gameObjectsOrange.Length; i++)
 				{
+					combo.combo = true;
 					Destroy(gameObject);
 					score.score += 2;
 					comboColor.comboColor = 3;
@@ -137,6 +145,7 @@ public class Collide : MonoBehaviour {
 			{
 				for(int i = 0; i < gameObjectsYellow.Length; i++)
 				{
+					combo.combo = true;
 					Destroy(gameObject);
 					score.score += 1;
 					comboColor.comboColor = 4;
@@ -149,8 +158,9 @@ public class Collide : MonoBehaviour {
 			{
 				for(int i = 0; i < gameObjectsYellow.Length; i++)
 				{
+					combo.combo = true;
 					Destroy(gameObject);
-					score.score += 1;
+					score.score += 2;
 					comboColor.comboColor = 4;
 				}
 				
@@ -161,6 +171,7 @@ public class Collide : MonoBehaviour {
 			{
 				for(int i = 0; i < gameObjectsPurple.Length; i++)
 				{
+					combo.combo = true;
 					Destroy(gameObject);
 					score.score += 1;
 					comboColor.comboColor = 5;
@@ -173,6 +184,7 @@ public class Collide : MonoBehaviour {
 			{
 				for(int i = 0; i < gameObjectsPurple.Length; i++)
 				{
+					combo.combo = true;
 					Destroy(gameObject);
 					score.score += 2;
 					comboColor.comboColor = 5;

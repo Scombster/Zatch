@@ -29,14 +29,6 @@ public class Level : MonoBehaviour {
 			Application.LoadLevel (Gameover);
 			Debug.Log ("click");
 		}
-
-		if (win == true)
-		{
-			guiText.text = "Level over!";
-			//if (GUI.Box (20,40,60,80), Next Level)){
-				//Destroy (Background_picture);
-		//	}
-		}
-			
+		
 	}
 }
