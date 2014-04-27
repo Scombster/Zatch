@@ -8,7 +8,7 @@ public class TimeController : MonoBehaviour {
 
 
 	private Level loss;
-	private float time = 10.0f;
+	private float time = 100.0f;
 
 	private Level win; 
 
