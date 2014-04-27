@@ -28,7 +28,7 @@ public class TimeController : MonoBehaviour {
 	{
 		time -= Time.deltaTime;
 		
-		if(time > 0 && b1.b1 == true)
+		if(time > 0 /*&& b1.b1 == true*/)
 		{
 			guiText.text = "Time Remaining: " + (int)time;
 
@@ -39,7 +39,7 @@ public class TimeController : MonoBehaviour {
 			b1.b1 = false;
 			time = 100.0f;
 		}
-			if(time > 0 && b2.b2 == true)
+			if(time > 0 /*&& b2.b2 == true*/)
 			{
 				guiText.text = "Time Remaining: " + (int)time;
 			}
@@ -49,7 +49,7 @@ public class TimeController : MonoBehaviour {
 				b2.b2 = false;
 				time = 100.0f;
 			}
-			if(time > 0 && b3.b3 == true)
+			if(time > 0 /*&& b3.b3 == true*/)
 			{
 				guiText.text = "Time Remaining: " + (int)time;
 			}
