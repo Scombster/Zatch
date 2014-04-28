@@ -18,7 +18,6 @@ public class Collide : MonoBehaviour {
 
 	public bool hasHitSomething = false;
 	public string Gameover;
-	private Level count;
 
 	void Start () 
 	{
@@ -164,6 +163,7 @@ public class Collide : MonoBehaviour {
 					Destroy(gameObject);
 					score.score += 1;
 					comboColor.comboColor = 4;
+					}
 				}
 			}
 			
