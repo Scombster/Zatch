@@ -35,15 +35,16 @@ public class Controller : MonoBehaviour {
 		}
 		if(Input.GetKeyDown("space")){
 			
-			
+			//useless because it is heading for the bottomlayer's middle everytime :(
 			float step = speed * Time.deltaTime;
 			transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-			
+
+			//More simple Fastdrop, but will always go 15 down no matter were it is, so can move out of the field. 
 			//transform.position += new Vector3(0,-15f,0);
 		}
 		
 		//"Resets" the game by destroying all bricks
-		if (Input.GetKey (KeyCode.Delete)) {
+		if (Input.GetKey (KeyCode.KeypadEnter)) {
 			Destroy (gameObject);
 		}
 		

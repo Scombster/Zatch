@@ -10,16 +10,22 @@ public class Spawn : MonoBehaviour {
 
 
 	void Start () {
-		//This is just here to spawn a single "SpawnBrick"
-		//SpawnBlock ();
-	}
-	
+				//This is just here to spawn a single "SpawnBrick"
+				//SpawnBlock ();
+
+
+		}
+
 	// Update is called once per frame
 	void Update () {
+		 	
 
-
-		if ((activeBlock == null) || (activeBlock.enabled == false)){
-			SpawnBlock ();
+		if (Time.time > 0.2f) {
+			if ((activeBlock == null) || (activeBlock.enabled == false)) {
+				SpawnBlock ();
+				Time.timeScale = 1f;
+			
+			}
 		}
 	}
 
@@ -27,9 +33,8 @@ public class Spawn : MonoBehaviour {
 
 
 			if (startGame == false) {
-				//	yield return new WaitForSeconds (4);
 					activeBlock = (Instantiater)Instantiate (spawnBrick, new Vector3 (-1.99f, 9.69f, 0), Quaternion.identity);
-					startGame = true;
+					
 
 			} else {
 				activeBlock = (Instantiater)Instantiate (spawnBrick, new Vector3 (-1.99f, 9.69f, 0), Quaternion.identity);
