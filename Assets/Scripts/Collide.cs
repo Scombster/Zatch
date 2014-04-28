@@ -6,7 +6,12 @@ public class Collide : MonoBehaviour {
 	private ScoreController score;
 	private ScoreController comboColor;
 
+<<<<<<< HEAD
 	public int radius = 1;
+=======
+
+	public float radius = 1000.0f;
+>>>>>>> bea1448eb63be93468c0c26ad1995b3068455475
 
 	public ComboText combo;
 
@@ -17,13 +22,14 @@ public class Collide : MonoBehaviour {
 	public GameObject[] gameObjectsPurple;
 
 	public bool hasHitSomething = false;
-	public string Gameover;
+
 
 	void Start () 
 	{
 		//Initialzation from the ScoreController script
 		score = GameObject.Find("Score").GetComponent<ScoreController>();
 		comboColor = GameObject.Find ("Score").GetComponent<ScoreController>();
+
 	}
 	
 	void Update () 
@@ -52,7 +58,7 @@ public class Collide : MonoBehaviour {
 			if(Vector3.Dot(contact.normal, Vector3.up) > 0.5)
 			{
 				if(this.transform.position.y >= 8.69f){
-					Debug.Log("Maria");
+					score.hasGameover = true;
 					Application.LoadLevel ("Gameover");
 
 				}
