@@ -13,7 +13,7 @@ public class Instantiater : MonoBehaviour {
 
 	//1
 	float MoveCD = 0f;
-	public	float Speedlevel = 0.5f;
+	public	float Speedlevel = 5.0f;
 
 
 	void Start () {
@@ -25,15 +25,17 @@ public class Instantiater : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//2
-		if (MoveCD < Time.time && this.enabled == true)
+		if (/*MoveCD < Time.time &&*/ this.enabled == true)
 		{
-			transform.position += new Vector3(0, -1, 0);
-			Move ();
+			Invoke("leveldelay",10);
+			//Move ();
+			Debug.Log("pølse");
 		}
 
 
 		if(b1.gameObject.GetComponent<Collide>().hasHitSomething == true || b2.gameObject.GetComponent<Collide>().hasHitSomething == true || b3.gameObject.GetComponent<Collide>().hasHitSomething == true){
 
+			audio.PlayOneShot(hit);
 			GetComponent<Controller>().enabled = false;
 			this.enabled = false;
 
@@ -73,6 +75,12 @@ public class Instantiater : MonoBehaviour {
 	{
 		MoveCD = Speedlevel + Time.time;
 		
+	}
+
+
+	void leveldelay(){
+		transform.position += new Vector3(0, -1, 0);
+		Debug.Log("ost");
 	}
 
 

@@ -7,7 +7,7 @@ public class TimeController : MonoBehaviour {
 	public BackgroundController bgcont;
 	public Instantiater speed;
 
-	private float time = 10.0f;
+	private float time = 20.0f;
 
 	public string Gameover;
 
