@@ -6,6 +6,10 @@ public class ScoreController : MonoBehaviour {
 	public float count = 0;
 	public int score = 0;
 	public int comboColor = 0;
+	public TimeController tc;
+	public bool hasGameover = false;
+
+
 
 	// Use this for initialization
 	void Awake () 
@@ -17,7 +21,14 @@ public class ScoreController : MonoBehaviour {
 	void Update () 
 	{
 		guiText.color = Color.white;
-		guiText.text = "Score: " + score;
-		
+		guiText.text = " " + score;
+		guiText.fontSize = 20;
+		if (tc.hasWon == true || hasGameover == true){
+			guiText.pixelOffset = new Vector2(-25, 0);
+			guiText.color = Color.black;
+		}
+
+		DontDestroyOnLoad(transform.gameObject);
+
 	}
 }
