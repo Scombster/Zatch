@@ -44,7 +44,7 @@ public class Controller : MonoBehaviour {
 		}
 		
 		//"Resets" the game by destroying all bricks
-		if (Input.GetKey (KeyCode.KeypadEnter)) {
+		if (Input.GetKey (KeyCode.Delete)) {
 			Destroy (gameObject);
 		}
 		
