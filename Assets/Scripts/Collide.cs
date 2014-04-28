@@ -3,20 +3,21 @@ using System.Collections;
 
 public class Collide : MonoBehaviour {
 
-	private ScoreController score;
-	private ScoreController comboColor;
-
+	//Public variables that we need to access elsewhere. 
 	public int radius = 1;
-
 	public ComboText combo;
-
-	//public GameObject[] gameObjectsBlue;
+	public GameObject[] gameObjectsBlue;
 	public GameObject[] gameObjectsGreen;
 	public GameObject[] gameObjectsOrange;
 	public GameObject[] gameObjectsYellow;
 	public GameObject[] gameObjectsPurple;
-
 	public bool hasHitSomething = false;
+
+	//Private instantiation of the ScoreController
+	//##INFO## - One instantiation is enough guys
+	//Bear out.
+	private ScoreController score;
+	private ScoreController comboColor;
 
 
 	void Start () 
@@ -29,19 +30,23 @@ public class Collide : MonoBehaviour {
 	
 	void Update () 
 	{			
-
-		//gameObjectsBlue = GameObject.FindGameObjectsWithTag ("Blue");
+		//Finding every gameObject tagged with each specific tag,
+		//and stored in a array
+		gameObjectsBlue = GameObject.FindGameObjectsWithTag ("Blue");
 		gameObjectsGreen = GameObject.FindGameObjectsWithTag ("Green");
 		gameObjectsOrange = GameObject.FindGameObjectsWithTag ("Orange");
 		gameObjectsYellow = GameObject.FindGameObjectsWithTag ("Yellow");
 		gameObjectsPurple = GameObject.FindGameObjectsWithTag ("Purple");
 	}
 
+	//Used backend for debugging
 	void OnDrawGizmos(){
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere (transform.position, radius);
 	}
 
+	//Giant function that checks for collisions, on spawnBricks,
+	//and tagged-bricks. 
 	void OnCollisionEnter2D(Collision2D other)
 	{			 
 
@@ -58,6 +63,8 @@ public class Collide : MonoBehaviour {
 				}
 
 				//Something needs to tell Instatiater that this object has collided!
+				//This is a workaround we're using to avoid collision detection if 
+				//two bricks spawn next to each other.
 				hasHitSomething = true;
 			}
 		}

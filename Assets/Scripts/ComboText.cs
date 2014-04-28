@@ -3,9 +3,17 @@ using System.Collections;
 
 public class ComboText : MonoBehaviour {
 
-	private ScoreController comboColor;
+	//Public variables that we need to use elsewhere, in this
+	//case the inspector.
+	//##INFO## the bool combo could might as well be private guys
 	public AudioClip comboClip;
 	public bool combo = false;
+
+	//Private comboColor used to access the comboColor int from
+	//the ScoreController
+	//##INFO## is this even being used???
+	private ScoreController comboColor;
+
 
 	// Use this for initialization
 	void Start () {
@@ -14,17 +22,16 @@ public class ComboText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		//Setting font size
 		guiText.fontSize = 20;
-
-		if( combo == true)
-		{
+		//Looks after combos, if any - a sound will be played
+		if(combo == true){
 			audio.PlayOneShot(comboClip, 0.5F);
-			Debug.Log("click");
+			//Debug.Log("ComboText - combo == true @ if-statement");
 		}
 
-		switch (comboColor.comboColor) 
-		{
+		//Switch-case that changes the colors.
+		switch (comboColor.comboColor){
 				case 0:
 						guiText.text = "No Bonus";
 						guiText.color = Color.white;
