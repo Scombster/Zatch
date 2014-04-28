@@ -4,60 +4,59 @@ using System.Collections;
 public class TimeController : MonoBehaviour {
 
 
-	private BackgroundController bgcont;
+	public BackgroundController bgcont;
 
 
 	private Level loss;
-	private float time = 100.0f;
+	private float time = 3.0f;
 
 	private Level win; 
-	private BackgroundController b1;
-	private BackgroundController b2;
-	private BackgroundController b3;
+
 
 	public string Gameover;
 
+	private bool l1 = false, l2 = false, l3 = false;
 
 	// Use this for initialization
 	void Start () {
-		//b1 = GameObject.Find("b1").GetComponent<BackgroundController>();
+		bgcont.b1 = true;
+		l1 = true;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		time -= Time.deltaTime;
-		
-		if(time > 0 /*&& b1.b1 == true*/)
-		{
-			guiText.text = "Time Remaining: " + (int)time;
+
+
+
+		guiText.text = "Time Remaining: " + (int)time;
+
+		if(l1 == true){
+			time -= Time.deltaTime;
+			if(time < 0 && l1 == true){
+				l1 = false;
+				l2 = true;
+				time = 5.0f;
+			}
+		}
+		if(l2 == true){
+			time -= Time.deltaTime;
+			bgcont.b2 = true;
+			if(time < 0 && l2 == true){
+				l2 = false;
+				l3 = true;
+				time = 7.0f;
+			}
 
 		}
-		else
-		{
-			b2.b2 = true;
-			b1.b1 = false;
-			time = 100.0f;
-		}
-			if(time > 0 /*&& b2.b2 == true*/)
-			{
-				guiText.text = "Time Remaining: " + (int)time;
-			}
-			else
-			{
-				b3.b3 = true;
-				b2.b2 = false;
-				time = 100.0f;
-			}
-			if(time > 0 /*&& b3.b3 == true*/)
-			{
-				guiText.text = "Time Remaining: " + (int)time;
-			}
-			else
-			{
+		if(l3 == true){
+			time -= Time.deltaTime;
+			bgcont.b3 = true;
+			if(time < 0 && l3 == true){
 				Application.LoadLevel (Gameover);
-				Debug.Log ("click");
+				Debug.Log("kage");
 			}
+		}
 	}
 }
 

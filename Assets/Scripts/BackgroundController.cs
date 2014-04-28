@@ -11,10 +11,10 @@ public class BackgroundController : MonoBehaviour {
 
 	void Awake(){
 	
-
-		bgn1.SetActive(true);
+		/*bgn1.SetActive(true);
 		bgn2.SetActive(false);
 		bgn3.SetActive(false);
+		*/
 	}
 
 
@@ -29,17 +29,17 @@ public class BackgroundController : MonoBehaviour {
 
 
 		if(b1 == true){
-			bgn1.SetActive(!bgn1.activeSelf);
+			bgn1.SetActive(true);
 		
 		}
 		
 		if(b2 == true){
-			bgn2.SetActive(!bgn2.activeSelf);
+			bgn2.SetActive(true);
 			
 		}
 		
 		if(b3 == true){
-			bgn3.SetActive(!bgn3.activeSelf);
+			bgn3.SetActive(true);
 			
 		}
 
