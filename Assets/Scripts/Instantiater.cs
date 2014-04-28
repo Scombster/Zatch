@@ -9,10 +9,11 @@ public class Instantiater : MonoBehaviour {
 	public GameObject b1;
 	public GameObject b2;
 	public GameObject b3;
+	public AudioClip hit;
 
 	//1
 	float MoveCD = 0f;
-	float Speed = 0.5f;
+	public	float Speedlevel = 0.5f;
 
 
 	void Start () {
@@ -70,7 +71,7 @@ public class Instantiater : MonoBehaviour {
 	
 	void Move()
 	{
-		MoveCD = Speed + Time.time;
+		MoveCD = Speedlevel + Time.time;
 		
 	}
 

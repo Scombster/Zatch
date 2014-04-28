@@ -5,13 +5,9 @@ public class TimeController : MonoBehaviour {
 
 
 	public BackgroundController bgcont;
+	public Instantiater speed;
 
-
-	private Level loss;
-	private float time = 3.0f;
-
-	private Level win; 
-
+	private float time = 10.0f;
 
 	public string Gameover;
 
@@ -26,9 +22,7 @@ public class TimeController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-
-
-
+	
 		guiText.text = "Time Remaining: " + (int)time;
 
 		if(l1 == true){
@@ -36,7 +30,8 @@ public class TimeController : MonoBehaviour {
 			if(time < 0 && l1 == true){
 				l1 = false;
 				l2 = true;
-				time = 5.0f;
+				time = 10.0f;
+				speed.Speedlevel = 2.0f;
 			}
 		}
 		if(l2 == true){
@@ -45,7 +40,8 @@ public class TimeController : MonoBehaviour {
 			if(time < 0 && l2 == true){
 				l2 = false;
 				l3 = true;
-				time = 7.0f;
+				time = 10.0f;
+				speed.Speedlevel = 10.0f;
 			}
 
 		}
@@ -53,7 +49,7 @@ public class TimeController : MonoBehaviour {
 			time -= Time.deltaTime;
 			bgcont.b3 = true;
 			if(time < 0 && l3 == true){
-				Application.LoadLevel (Gameover);
+				Application.LoadLevel ("WinScreen");
 				Debug.Log("kage");
 			}
 		}
