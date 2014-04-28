@@ -6,12 +6,7 @@ public class Collide : MonoBehaviour {
 	private ScoreController score;
 	private ScoreController comboColor;
 
-<<<<<<< HEAD
 	public int radius = 1;
-=======
-
-	public float radius = 1000.0f;
->>>>>>> bea1448eb63be93468c0c26ad1995b3068455475
 
 	public ComboText combo;
 
@@ -40,7 +35,6 @@ public class Collide : MonoBehaviour {
 		gameObjectsOrange = GameObject.FindGameObjectsWithTag ("Orange");
 		gameObjectsYellow = GameObject.FindGameObjectsWithTag ("Yellow");
 		gameObjectsPurple = GameObject.FindGameObjectsWithTag ("Purple");
-		print (collidersBlue.Length);
 	}
 
 	void OnDrawGizmos(){
