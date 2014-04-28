@@ -6,34 +6,40 @@ public class Collide : MonoBehaviour {
 	private ScoreController score;
 	private ScoreController comboColor;
 
-	public float radius = 1000.0f;
+	public int radius = 1;
 
 	public ComboText combo;
 
-	public GameObject[] gameObjectsBlue;
+	//public GameObject[] gameObjectsBlue;
 	public GameObject[] gameObjectsGreen;
 	public GameObject[] gameObjectsOrange;
 	public GameObject[] gameObjectsYellow;
 	public GameObject[] gameObjectsPurple;
 
 	public bool hasHitSomething = false;
-	public string Gameover;
+
 
 	void Start () 
 	{
 		//Initialzation from the ScoreController script
 		score = GameObject.Find("Score").GetComponent<ScoreController>();
 		comboColor = GameObject.Find ("Score").GetComponent<ScoreController>();
+
 	}
 	
 	void Update () 
 	{			
 
-		gameObjectsBlue = GameObject.FindGameObjectsWithTag ("Blue");
+		//gameObjectsBlue = GameObject.FindGameObjectsWithTag ("Blue");
 		gameObjectsGreen = GameObject.FindGameObjectsWithTag ("Green");
 		gameObjectsOrange = GameObject.FindGameObjectsWithTag ("Orange");
 		gameObjectsYellow = GameObject.FindGameObjectsWithTag ("Yellow");
 		gameObjectsPurple = GameObject.FindGameObjectsWithTag ("Purple");
+	}
+
+	void OnDrawGizmos(){
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere (transform.position, radius);
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
@@ -46,7 +52,7 @@ public class Collide : MonoBehaviour {
 			if(Vector3.Dot(contact.normal, Vector3.up) > 0.5)
 			{
 				if(this.transform.position.y >= 8.69f){
-					Debug.Log("Maria");
+					score.hasGameover = true;
 					Application.LoadLevel ("Gameover");
 
 				}
@@ -56,45 +62,49 @@ public class Collide : MonoBehaviour {
 			}
 		}
 
-	}
+	//}
 
-	void OnTriggerEnter2D(Collider2D other){
+	//void OnTriggerEnter2D(Collider2D other){
 		
 			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue" && comboColor.comboColor != 1)
 			{
 				print ("Blue Collide 1");
 
-				for(int i = 0; i < gameObjectsBlue.Length; i++){
+				//for(int i = 0; i < gameObjectsBlue.Length; i++){
 
 					print ("Blue Collide 2");
 
-					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+					Collider2D[] collidersBlue = Physics2D.OverlapCircleAll(other.transform.position, radius);
 
-					print (colliders.Length);
+					print (collidersBlue.Length);
 					print (this.gameObject.transform.position);
-					foreach(Collider2D col in colliders){
+					foreach(Collider2D col in collidersBlue){
 						print ("Blue Collide 3");
-						Destroy(col.gameObject);
+						if(col.collider2D.tag == "Blue"){
+						Destroy(col.collider2D.gameObject);
 						score.score += 1;
 						comboColor.comboColor = 1;
+						}
 					}
-				}
+				//}
 			}
 
 			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue" && comboColor.comboColor == 1)
 			{
 				
 		
-				for(int i = 0; i < gameObjectsBlue.Length; i++)
-				{
+				//for(int i = 0; i < gameObjectsBlue.Length; i++)
+				//{
 					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 					
 					foreach(Collider2D col in colliders){
-						Destroy(gameObject);
+						if(col.tag == "Blue"){
+						Destroy(col.gameObject);
 						score.score += 2;
 						comboColor.comboColor = 1;
+						}
 					}
-				}
+				//}
 			}
 		
 			if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green" && comboColor.comboColor != 2)
@@ -104,9 +114,11 @@ public class Collide : MonoBehaviour {
 					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);	
 					
 					foreach(Collider2D col in colliders){
-					Destroy(gameObject);
-					score.score += 1;
-					comboColor.comboColor = 2;
+						if(col.tag == "Green"){
+						Destroy(col.gameObject);
+						score.score += 1;
+						comboColor.comboColor = 2;
+						}
 					}	
 				}
 			}
@@ -118,9 +130,11 @@ public class Collide : MonoBehaviour {
 					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 					
 					foreach(Collider2D col in colliders){
-					Destroy(gameObject);
-					score.score += 2;
-					comboColor.comboColor = 2;
+						if(col.tag == "Green"){
+						Destroy(col.gameObject);
+						score.score += 2;
+						comboColor.comboColor = 2;
+						}
 					}
 				}
 			}
@@ -132,9 +146,11 @@ public class Collide : MonoBehaviour {
 					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 					
 					foreach(Collider2D col in colliders){
-					Destroy(gameObject);
-					score.score += 1;
-					comboColor.comboColor = 3;
+						if(col.tag == "Orange"){
+						Destroy(col.gameObject);
+						score.score += 1;
+						comboColor.comboColor = 3;
+						}
 					}
 				}
 			}
@@ -146,9 +162,11 @@ public class Collide : MonoBehaviour {
 					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 					
 					foreach(Collider2D col in colliders){
-					Destroy(gameObject);
-					score.score += 2;
-					comboColor.comboColor = 3;
+						if(col.tag == "Orange"){
+						Destroy(col.gameObject);
+						score.score += 2;
+						comboColor.comboColor = 3;
+						}
 					}
 				}
 			}
@@ -160,9 +178,11 @@ public class Collide : MonoBehaviour {
 					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 					
 					foreach(Collider2D col in colliders){
-					Destroy(gameObject);
-					score.score += 1;
-					comboColor.comboColor = 4;
+						if(col.tag == "Yellow"){
+						Destroy(col.gameObject);
+						score.score += 1;
+						comboColor.comboColor = 4;
+						}
 					}
 				}
 			}
@@ -174,9 +194,11 @@ public class Collide : MonoBehaviour {
 					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 
 					foreach(Collider2D col in colliders){
-					Destroy(gameObject);
-					score.score += 2;
-					comboColor.comboColor = 4;
+						if(col.tag == "Yellow"){
+						Destroy(col.gameObject);
+						score.score += 2;
+						comboColor.comboColor = 4;
+						}
 					}
 				}
 			}
@@ -188,9 +210,11 @@ public class Collide : MonoBehaviour {
 					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 
 					foreach(Collider2D col in colliders){
-					Destroy(gameObject);
-					score.score += 1;
-					comboColor.comboColor = 5;
+						if(col.tag == "Purple"){
+						Destroy(col.gameObject);
+						score.score += 1;
+						comboColor.comboColor = 5;
+						}
 					}
 				}
 			}
@@ -202,9 +226,11 @@ public class Collide : MonoBehaviour {
 					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 
 					foreach(Collider2D col in colliders){
-					Destroy(gameObject);
-					score.score += 2;
-					comboColor.comboColor = 5;
+						if(col.tag == "Purple"){
+						Destroy(col.gameObject);
+						score.score += 2;
+						comboColor.comboColor = 5;
+						}
 					}
 				}
 			}

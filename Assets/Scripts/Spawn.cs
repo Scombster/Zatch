@@ -33,11 +33,11 @@ public class Spawn : MonoBehaviour {
 
 
 			if (startGame == false) {
-					activeBlock = (Instantiater)Instantiate (spawnBrick, new Vector3 (-1.99f, 9.69f, 0), Quaternion.identity);
+					activeBlock = (Instantiater)Instantiate (spawnBrick, new Vector3 (-1.99f, 8.69f, 0), Quaternion.identity);
 					
 
 			} else {
-				activeBlock = (Instantiater)Instantiate (spawnBrick, new Vector3 (-1.99f, 9.69f, 0), Quaternion.identity);
+				activeBlock = (Instantiater)Instantiate (spawnBrick, new Vector3 (-1.99f, 8.69f, 0), Quaternion.identity);
 				}
 	}
 }

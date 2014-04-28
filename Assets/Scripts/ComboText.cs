@@ -15,6 +15,8 @@ public class ComboText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		guiText.fontSize = 20;
+
 		if( combo == true)
 		{
 			audio.PlayOneShot(comboClip, 0.5F);
