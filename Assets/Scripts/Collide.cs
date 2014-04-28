@@ -6,6 +6,8 @@ public class Collide : MonoBehaviour {
 	private ScoreController score;
 	private ScoreController comboColor;
 
+	public float radius = 1000.0f;
+
 	public ComboText combo;
 
 	public GameObject[] gameObjectsBlue;
@@ -27,6 +29,7 @@ public class Collide : MonoBehaviour {
 	
 	void Update () 
 	{			
+
 		gameObjectsBlue = GameObject.FindGameObjectsWithTag ("Blue");
 		gameObjectsGreen = GameObject.FindGameObjectsWithTag ("Green");
 		gameObjectsOrange = GameObject.FindGameObjectsWithTag ("Orange");
@@ -48,153 +51,162 @@ public class Collide : MonoBehaviour {
 					Application.LoadLevel ("Gameover");
 
 				}
+
 				//Something needs to tell Instatiater that this object has collided!
 				hasHitSomething = true;
-
-				//this is legacy code
-			
 			}
 		}
 
 	}
+
 	void OnTriggerEnter2D(Collider2D other){
-
-		print ("Work pls");
 		
-		//if(hasHitSomething == true){
-
-		//Detects collison between bricks. 
-		//If the colors match it updates score and destroy the colliding bricks.
-
 			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue" && comboColor.comboColor != 1)
 			{
-				for(int i = 0; i < gameObjectsBlue.Length; i++)
-				{
-				//combo.combo = true;
-				Destroy(gameObject);
-				score.score += 1;
-				comboColor.comboColor = 1;
-				}
+				print ("Blue Collide 1");
 
-				//count.count += 0.5f;
+				for(int i = 0; i < gameObjectsBlue.Length; i++){
+
+					print ("Blue Collide 2");
+
+					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+
+					print (colliders.Length);
+					print (this.gameObject.transform.position);
+					foreach(Collider2D col in colliders){
+						print ("Blue Collide 3");
+						Destroy(col.gameObject);
+						score.score += 1;
+						comboColor.comboColor = 1;
+					}
+				}
 			}
 
 			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue" && comboColor.comboColor == 1)
 			{
+				
+		
 				for(int i = 0; i < gameObjectsBlue.Length; i++)
 				{
-					//combo.combo = true;
-					Destroy(gameObject);
-					score.score += 2;
-					comboColor.comboColor = 1;
+					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+					
+					foreach(Collider2D col in colliders){
+						Destroy(gameObject);
+						score.score += 2;
+						comboColor.comboColor = 1;
+					}
 				}
-				
-				count.count += 0.5f;
 			}
 		
 			if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green" && comboColor.comboColor != 2)
 			{
 				for(int i = 0; i < gameObjectsGreen.Length; i++)
 				{
-					//combo.combo = true;
+					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);	
+					
+					foreach(Collider2D col in colliders){
 					Destroy(gameObject);
 					score.score += 1;
 					comboColor.comboColor = 2;
+					}	
 				}
-				
-				//count.count += 0.5f;
 			}
 			
 			if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green" && comboColor.comboColor == 2)
 			{
 				for(int i = 0; i < gameObjectsGreen.Length; i++)
 				{
-					//combo.combo = true;
+					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+					
+					foreach(Collider2D col in colliders){
 					Destroy(gameObject);
 					score.score += 2;
 					comboColor.comboColor = 2;
+					}
 				}
-				
-				//count.count += 0.5f;
 			}
 
 			if(this.gameObject.tag == "Orange" && other.gameObject.tag == "Orange" && comboColor.comboColor != 3)
 			{
 				for(int i = 0; i < gameObjectsOrange.Length; i++)
 				{
-					//combo.combo = true;
+					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+					
+					foreach(Collider2D col in colliders){
 					Destroy(gameObject);
 					score.score += 1;
 					comboColor.comboColor = 3;
+					}
 				}
-				
-				//count.count += 0.5f;
 			}
 			
 			if(this.gameObject.tag == "Orange" && other.gameObject.tag == "Orange" && comboColor.comboColor == 3)
 			{
 				for(int i = 0; i < gameObjectsOrange.Length; i++)
 				{
-					//combo.combo = true;
+					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+					
+					foreach(Collider2D col in colliders){
 					Destroy(gameObject);
 					score.score += 2;
 					comboColor.comboColor = 3;
+					}
 				}
-				
-				//count.count += 0.5f;
 			}
 
 			if(this.gameObject.tag == "Yellow" && other.gameObject.tag == "Yellow" && comboColor.comboColor != 4)
 			{
 				for(int i = 0; i < gameObjectsYellow.Length; i++)
 				{
-					//combo.combo = true;
+					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+					
+					foreach(Collider2D col in colliders){
 					Destroy(gameObject);
 					score.score += 1;
 					comboColor.comboColor = 4;
 				}
-				
-				//count.count += 0.5f;
 			}
 			
 			if(this.gameObject.tag == "Yellow" && other.gameObject.tag == "Yellow" && comboColor.comboColor == 4)
 			{
 				for(int i = 0; i < gameObjectsYellow.Length; i++)
 				{
-					//combo.combo = true;
+					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+
+					foreach(Collider2D col in colliders){
 					Destroy(gameObject);
 					score.score += 2;
 					comboColor.comboColor = 4;
+					}
 				}
-				
-				//count.count += 0.5f;
 			}
 
 			if(this.gameObject.tag == "Purple" && other.gameObject.tag == "Purple" && comboColor.comboColor != 5)
 			{
 				for(int i = 0; i < gameObjectsPurple.Length; i++)
 				{
-					//combo.combo = true;
+					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+
+					foreach(Collider2D col in colliders){
 					Destroy(gameObject);
 					score.score += 1;
 					comboColor.comboColor = 5;
+					}
 				}
-				
-				//count.count += 0.5f;
 			}
 			
 			if(this.gameObject.tag == "Purple" && other.gameObject.tag == "Purple" && comboColor.comboColor == 5)
 			{
 				for(int i = 0; i < gameObjectsPurple.Length; i++)
 				{
-					//combo.combo = true;
+					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+
+					foreach(Collider2D col in colliders){
 					Destroy(gameObject);
 					score.score += 2;
 					comboColor.comboColor = 5;
+					}
 				}
-				
-				//count.count += 0.5f;;
 			}
-		//}
 	}
 }
