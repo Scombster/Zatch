@@ -6,6 +6,7 @@ public class TimeController : MonoBehaviour {
 
 	public BackgroundController bgcont;
 	public Instantiater speed;
+	public bool hasWon = false;
 
 	private float time = 20.0f;
 
@@ -49,8 +50,10 @@ public class TimeController : MonoBehaviour {
 			time -= Time.deltaTime;
 			bgcont.b3 = true;
 			if(time < 0 && l3 == true){
+				hasWon = true;
 				Application.LoadLevel ("WinScreen");
 				Debug.Log("kage");
+
 			}
 		}
 	}
