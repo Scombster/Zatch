@@ -5,6 +5,7 @@ public class Instantiater : MonoBehaviour {
 	//Public's cause we need to access theese elsewhere. 
 	//Array that holds the coloured blocks
 	public GameObject[] blocks;
+	public float nextStepTimestamp;
 	//GameObjects for the different spawns needed 
 	public GameObject b1;
 	public GameObject b2;
@@ -13,11 +14,6 @@ public class Instantiater : MonoBehaviour {
 	public AudioClip hit;
 	//This will, at some point, be used to control the speed. 
 	public	float Speedlevel = 5.0f;
-
-	//Private float that is used to controll the movement
-	//of the spawnBrick.
-	//##INFO## not working as inteded.
-	private float MoveCD = 3f;
 
 	void Start (){
 		//This is calling the CreateBlock-function that will instantiate 
@@ -29,11 +25,9 @@ public class Instantiater : MonoBehaviour {
 	void Update (){
 
 		//WIP
-		if (MoveCD < Time.time && this.enabled == true){
-			//Invoke("leveldelay",10);
-			transform.position += new Vector3(0, -1, 0);
-			Move();
-			//Debug.Log("If-statement triggered! : Update@31");
+		if (nextStepTimestamp <= Time.realtimeSinceStartup && this.enabled == true){
+			transform.Translate(0,-1,0);
+			nextStepTimestamp = Time.realtimeSinceStartup + 1;
 		}
 
 
@@ -58,18 +52,4 @@ public class Instantiater : MonoBehaviour {
 		b2.transform.parent = this.gameObject.transform;
 		b3.transform.parent = this.gameObject.transform;
 	}
-
-	//WIP
-	void Move()
-	{
-		MoveCD = Speedlevel + Time.time;		
-	}
-
-	//WIP 
-	/*
-	void leveldelay(){
-		transform.position += new Vector3(0, -1, 0);
-		Debug.Log("ost");
-	}
-	*/
 }

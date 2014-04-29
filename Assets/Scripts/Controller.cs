@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour {
 
 	//Private float used by the hard-drop, this is 
 	//not working perfectly tho.
-	private float speed;
+	private float speed = 100;
 	
 	// Use this for initialization
 	void Start () {
