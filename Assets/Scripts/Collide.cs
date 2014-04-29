@@ -6,11 +6,6 @@ public class Collide : MonoBehaviour {
 	//Public variables that we need to access elsewhere. 
 	public int radius = 1;
 	public ComboText combo;
-	public GameObject[] gameObjectsBlue;
-	public GameObject[] gameObjectsGreen;
-	public GameObject[] gameObjectsOrange;
-	public GameObject[] gameObjectsYellow;
-	public GameObject[] gameObjectsPurple;
 	public bool hasHitSomething = false;
 
 	//Private instantiation of the ScoreController
@@ -30,17 +25,12 @@ public class Collide : MonoBehaviour {
 	
 	void Update () 
 	{			
-		//Finding every gameObject tagged with each specific tag,
-		//and stored in a array
-		gameObjectsBlue = GameObject.FindGameObjectsWithTag ("Blue");
-		gameObjectsGreen = GameObject.FindGameObjectsWithTag ("Green");
-		gameObjectsOrange = GameObject.FindGameObjectsWithTag ("Orange");
-		gameObjectsYellow = GameObject.FindGameObjectsWithTag ("Yellow");
-		gameObjectsPurple = GameObject.FindGameObjectsWithTag ("Purple");
+
 	}
 
 	//Used backend for debugging
-	void OnDrawGizmos(){
+	void OnDrawGizmos()
+	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere (transform.position, radius);
 	}
@@ -68,176 +58,143 @@ public class Collide : MonoBehaviour {
 				hasHitSomething = true;
 			}
 		}
-
-	//}
-
-	//void OnTriggerEnter2D(Collider2D other){
 		
 			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue" && comboColor.comboColor != 1)
 			{
-				print ("Blue Collide 1");
 
-				//for(int i = 0; i < gameObjectsBlue.Length; i++){
+				Collider2D[] colliders = Physics2D.OverlapCircleAll(other.transform.position, radius);
 
-					print ("Blue Collide 2");
-
-					Collider2D[] collidersBlue = Physics2D.OverlapCircleAll(other.transform.position, radius);
-
-					print (collidersBlue.Length);
-					print (this.gameObject.transform.position);
-					foreach(Collider2D col in collidersBlue){
-						print ("Blue Collide 3");
-						if(col.collider2D.tag == "Blue"){
-						Destroy(col.collider2D.gameObject);
-						score.score += 1;
-						comboColor.comboColor = 1;
-						}
+				foreach(Collider2D col in colliders){
+					if(col.tag == "Blue"){
+					Destroy(col.gameObject);
+					score.score += 1;
+					comboColor.comboColor = 1;
 					}
-				//}
+				}
 			}
 
 			if(this.gameObject.tag == "Blue" && other.gameObject.tag == "Blue" && comboColor.comboColor == 1)
 			{
+
+				Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 				
-		
-				//for(int i = 0; i < gameObjectsBlue.Length; i++)
-				//{
-					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
-					
-					foreach(Collider2D col in colliders){
-						if(col.tag == "Blue"){
-						Destroy(col.gameObject);
-						score.score += 2;
-						comboColor.comboColor = 1;
-						}
+				foreach(Collider2D col in colliders){
+					if(col.tag == "Blue"){
+					Destroy(col.gameObject);
+					score.score += 2;
+					comboColor.comboColor = 1;
 					}
-				//}
+				}
 			}
 		
 			if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green" && comboColor.comboColor != 2)
 			{
-				for(int i = 0; i < gameObjectsGreen.Length; i++)
-				{
-					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);	
+
+				Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);	
 					
-					foreach(Collider2D col in colliders){
-						if(col.tag == "Green"){
-						Destroy(col.gameObject);
-						score.score += 1;
-						comboColor.comboColor = 2;
-						}
-					}	
-				}
+				foreach(Collider2D col in colliders){
+					if(col.tag == "Green"){
+					Destroy(col.gameObject);
+					score.score += 1;
+					comboColor.comboColor = 2;
+					}
+				}	
 			}
 			
 			if(this.gameObject.tag == "Green" && other.gameObject.tag == "Green" && comboColor.comboColor == 2)
 			{
-				for(int i = 0; i < gameObjectsGreen.Length; i++)
-				{
-					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+
+				Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 					
-					foreach(Collider2D col in colliders){
-						if(col.tag == "Green"){
-						Destroy(col.gameObject);
-						score.score += 2;
-						comboColor.comboColor = 2;
-						}
+				foreach(Collider2D col in colliders){
+					if(col.tag == "Green"){
+					Destroy(col.gameObject);
+					score.score += 2;
+					comboColor.comboColor = 2;
 					}
 				}
 			}
 
 			if(this.gameObject.tag == "Orange" && other.gameObject.tag == "Orange" && comboColor.comboColor != 3)
 			{
-				for(int i = 0; i < gameObjectsOrange.Length; i++)
-				{
-					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+
+				Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 					
-					foreach(Collider2D col in colliders){
-						if(col.tag == "Orange"){
-						Destroy(col.gameObject);
-						score.score += 1;
-						comboColor.comboColor = 3;
-						}
+				foreach(Collider2D col in colliders){
+					if(col.tag == "Orange"){
+					Destroy(col.gameObject);
+					score.score += 1;
+					comboColor.comboColor = 3;
 					}
 				}
 			}
 			
 			if(this.gameObject.tag == "Orange" && other.gameObject.tag == "Orange" && comboColor.comboColor == 3)
 			{
-				for(int i = 0; i < gameObjectsOrange.Length; i++)
-				{
-					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+
+				Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 					
-					foreach(Collider2D col in colliders){
-						if(col.tag == "Orange"){
-						Destroy(col.gameObject);
-						score.score += 2;
-						comboColor.comboColor = 3;
-						}
+				foreach(Collider2D col in colliders){
+					if(col.tag == "Orange"){
+					Destroy(col.gameObject);
+					score.score += 2;
+					comboColor.comboColor = 3;
 					}
 				}
 			}
 
 			if(this.gameObject.tag == "Yellow" && other.gameObject.tag == "Yellow" && comboColor.comboColor != 4)
 			{
-				for(int i = 0; i < gameObjectsYellow.Length; i++)
-				{
-					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+
+				Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 					
-					foreach(Collider2D col in colliders){
-						if(col.tag == "Yellow"){
-						Destroy(col.gameObject);
-						score.score += 1;
-						comboColor.comboColor = 4;
-						}
+				foreach(Collider2D col in colliders){
+					if(col.tag == "Yellow"){
+					Destroy(col.gameObject);
+					score.score += 1;
+					comboColor.comboColor = 4;
 					}
 				}
 			}
 			
 			if(this.gameObject.tag == "Yellow" && other.gameObject.tag == "Yellow" && comboColor.comboColor == 4)
 			{
-				for(int i = 0; i < gameObjectsYellow.Length; i++)
-				{
-					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 
-					foreach(Collider2D col in colliders){
-						if(col.tag == "Yellow"){
-						Destroy(col.gameObject);
-						score.score += 2;
-						comboColor.comboColor = 4;
-						}
+				Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+
+				foreach(Collider2D col in colliders){
+					if(col.tag == "Yellow"){
+					Destroy(col.gameObject);
+					score.score += 2;
+					comboColor.comboColor = 4;
 					}
 				}
 			}
 
 			if(this.gameObject.tag == "Purple" && other.gameObject.tag == "Purple" && comboColor.comboColor != 5)
 			{
-				for(int i = 0; i < gameObjectsPurple.Length; i++)
-				{
-					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 
-					foreach(Collider2D col in colliders){
-						if(col.tag == "Purple"){
-						Destroy(col.gameObject);
-						score.score += 1;
-						comboColor.comboColor = 5;
-						}
+				Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+
+				foreach(Collider2D col in colliders){
+					if(col.tag == "Purple"){
+					Destroy(col.gameObject);
+					score.score += 1;
+					comboColor.comboColor = 5;
 					}
 				}
 			}
 			
 			if(this.gameObject.tag == "Purple" && other.gameObject.tag == "Purple" && comboColor.comboColor == 5)
 			{
-				for(int i = 0; i < gameObjectsPurple.Length; i++)
-				{
-					Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 
-					foreach(Collider2D col in colliders){
-						if(col.tag == "Purple"){
-						Destroy(col.gameObject);
-						score.score += 2;
-						comboColor.comboColor = 5;
-						}
+				Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+
+				foreach(Collider2D col in colliders){
+					if(col.tag == "Purple"){
+					Destroy(col.gameObject);
+					score.score += 2;
+					comboColor.comboColor = 5;
 					}
 				}
 			}
