@@ -7,7 +7,7 @@ public class LevelDisplay : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Screen.SetResolution (800, 600, true);
+		Screen.SetResolution (800, 600, false);
 		level = GameObject.Find("Timer").GetComponent<TimeController>();
 		guiText.fontSize = 20;
 		guiText.pixelOffset = new Vector2(250, -100);
