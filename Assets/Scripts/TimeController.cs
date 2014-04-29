@@ -11,7 +11,7 @@ public class TimeController : MonoBehaviour {
 
 
 	//Private variables that doesn't need to be accessed by other scripts
-	private float time = 20.0f;
+	private float time = 60.0f;
 	public int level = 0;
 
 	// Use this for initialization
@@ -36,7 +36,7 @@ public class TimeController : MonoBehaviour {
 			time -= Time.deltaTime;
 			if(time < 0 && level == 1){
 				level = 2;
-				time = 10.0f;
+				time = 60.0f;
 				speed.Speedlevel = 1.0f;
 			}
 		}
@@ -47,7 +47,7 @@ public class TimeController : MonoBehaviour {
 			bgcont.b2 = true;
 			if(time < 0 && level == 2){
 				level = 3;
-				time = 10.0f;
+				time = 60.0f;
 				speed.Speedlevel = 10.0f;
 			}
 		}
