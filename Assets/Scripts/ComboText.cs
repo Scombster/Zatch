@@ -18,6 +18,7 @@ public class ComboText : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		comboColor = GameObject.Find("Score").GetComponent<ScoreController>();
+		guiText.pixelOffset = new Vector2 (Screen.width/2 -300, Screen.height/2 -200);
 	}
 	
 	// Update is called once per frame

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class TimeController : MonoBehaviour {
@@ -12,12 +12,13 @@ public class TimeController : MonoBehaviour {
 
 	//Private variables that doesn't need to be accessed by other scripts
 	private float time = 20.0f;
-	private bool l1 = false, l2 = false, l3 = false;
+	public int level = 0;
 
 	// Use this for initialization
 	void Start () {
 		bgcont.b1 = true;
-		l1 = true;
+		level = 1;
+		guiText.pixelOffset = new Vector2 (Screen.width/2 -300, Screen.height/2 -150);
 	}
 	
 	// Update is called once per frame
@@ -30,34 +31,32 @@ public class TimeController : MonoBehaviour {
 		guiText.fontSize = 20;
 
 		//Our first if-statement that checks if we are on level 1.
-		if(l1 == true){
+		if(level == 1){
 			speed.brickSpeed = 0.5f;
 			time -= Time.deltaTime;
-			if(time < 0 && l1 == true){
-				l1 = false;
-				l2 = true;
+			if(time < 0 && level == 1){
+				level = 2;
 				time = 10.0f;
 				speed.Speedlevel = 1.0f;
 			}
 		}
 		//Second if-statement that check wheter we are on level 2.
-		if(l2 == true){
+		if(level == 2){
 			speed.brickSpeed = 0.2f;
 			time -= Time.deltaTime;
 			bgcont.b2 = true;
-			if(time < 0 && l2 == true){
-				l2 = false;
-				l3 = true;
+			if(time < 0 && level == 2){
+				level = 3;
 				time = 10.0f;
 				speed.Speedlevel = 10.0f;
 			}
 		}
 		//
-		if(l3 == true){
+		if(level == 3){
 			speed.brickSpeed = 0.050f;
 			time -= Time.deltaTime;
 			bgcont.b3 = true;
-			if(time < 0 && l3 == true){
+			if(time < 0 && level == 3){
 				hasWon = true;
 				Application.LoadLevel ("WinScreen");
 				//Debug.Log("l3 if-statement trigged");

@@ -13,7 +13,7 @@ public class ScoreController : MonoBehaviour {
 	// Use this for initialization
 	void Start() 
 	{
-		
+		guiText.pixelOffset = new Vector2 (Screen.width/2 -300, Screen.height/2 -50);
 	}
 	
 	// Update is called once per frame
