@@ -60,7 +60,7 @@ public class ComboText : MonoBehaviour {
 						break;
 
 				case 5:
-						guiText.text = "PURPLE = DOUBLE!";
+						guiText.text = "Purple = Double!";
 						guiText.color = new Color32(128, 0, 128, 255);
 						break;
 		}
