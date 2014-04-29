@@ -6,6 +6,7 @@ public class Instantiater : MonoBehaviour {
 	//Array that holds the coloured blocks
 	public GameObject[] blocks;
 	public float nextStepTimestamp;
+	public float brickSpeed;
 	//GameObjects for the different spawns needed 
 	public GameObject b1;
 	public GameObject b2;
@@ -26,8 +27,8 @@ public class Instantiater : MonoBehaviour {
 
 		//WIP
 		if (nextStepTimestamp <= Time.realtimeSinceStartup && this.enabled == true){
-			transform.Translate(0,-1,0);
-			nextStepTimestamp = Time.realtimeSinceStartup + 1;
+			transform.position += new Vector3(0,-1,0);
+			nextStepTimestamp = Time.realtimeSinceStartup + brickSpeed;
 		}
 
 

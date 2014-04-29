@@ -31,16 +31,18 @@ public class TimeController : MonoBehaviour {
 
 		//Our first if-statement that checks if we are on level 1.
 		if(l1 == true){
+			speed.brickSpeed = 0.5f;
 			time -= Time.deltaTime;
 			if(time < 0 && l1 == true){
 				l1 = false;
 				l2 = true;
 				time = 10.0f;
-				speed.Speedlevel = 2.0f;
+				speed.Speedlevel = 1.0f;
 			}
 		}
 		//Second if-statement that check wheter we are on level 2.
 		if(l2 == true){
+			speed.brickSpeed = 0.2f;
 			time -= Time.deltaTime;
 			bgcont.b2 = true;
 			if(time < 0 && l2 == true){
@@ -52,6 +54,7 @@ public class TimeController : MonoBehaviour {
 		}
 		//
 		if(l3 == true){
+			speed.brickSpeed = 0.050f;
 			time -= Time.deltaTime;
 			bgcont.b3 = true;
 			if(time < 0 && l3 == true){
