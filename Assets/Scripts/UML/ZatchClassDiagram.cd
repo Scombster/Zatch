@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="BackgroundController">
+    <Position X="13.25" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAwAEAACAAAAAAAAAAAAAAAABAAAAAAAAgAAAAIAA=</HashCode>
+      <FileName>Assets\Scripts\BackgroundController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Collide">
+    <Position X="2" Y="10" Width="3.25" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="18.125" Y="6.191" />
+        <Point X="18.125" Y="8.238" />
+        <Point X="5.068" Y="8.238" Type="JumpStart" />
+        <Point X="4.901" Y="8.238" Type="JumpEnd" />
+        <Point X="4.74" Y="8.238" Type="JumpStart" />
+        <Point X="4.573" Y="8.238" Type="JumpEnd" />
+        <Point X="3.625" Y="8.238" />
+        <Point X="3.625" Y="10" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="comboColor" Type="ScoreController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.656" Y="10" />
+        <Point X="4.656" Y="5.5" />
+        <Point X="5.5" Y="5.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQEAAAACCAIAAAAAAAIAEAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Collide.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="combo" />
+      <Field Name="comboColor" />
+      <Field Name="score" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ComboText">
+    <Position X="1.75" Y="3.5" Width="2.25" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="17.625" Y="6.191" />
+        <Point X="17.625" Y="7.674" />
+        <Point X="5.068" Y="7.674" Type="JumpStart" />
+        <Point X="4.901" Y="7.674" Type="JumpEnd" />
+        <Point X="4.74" Y="7.674" Type="JumpStart" />
+        <Point X="4.573" Y="7.674" Type="JumpEnd" />
+        <Point X="2.875" Y="7.674" />
+        <Point X="2.875" Y="5.569" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAIAAAAAAAAAEAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ComboText.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="comboColor" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Controller">
+    <Position X="12.75" Y="10" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAIAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Instantiater">
+    <Position X="6.25" Y="10" Width="2.25" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="18.375" Y="6.191" />
+        <Point X="18.375" Y="8.356" />
+        <Point X="7.375" Y="8.356" />
+        <Point X="7.375" Y="10" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAgAAAAAAAAgAAABAAAgEAgAgAAAAJAA=</HashCode>
+      <FileName>Assets\Scripts\Instantiater.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelDisplay">
+    <Position X="9.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\LevelDisplay.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="level" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Play">
+    <Position X="16" Y="10" Width="1.75" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="19.438" Y="6.191" />
+        <Point X="19.438" Y="9.812" />
+        <Point X="16.875" Y="9.812" />
+        <Point X="16.875" Y="10" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAhAAAAAAACAAA=</HashCode>
+      <FileName>Assets\Scripts\Play.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScoreController">
+    <Position X="5.5" Y="3.5" Width="2" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="17.5" Y="6.191" />
+        <Point X="17.5" Y="7.542" />
+        <Point X="6.5" Y="7.542" />
+        <Point X="6.5" Y="5.954" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="tc" Type="TimeController">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.541" Y="0.088" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAACAAAAAABAAIQEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ScoreController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="tc" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Spawn">
+    <Position X="9.75" Y="10" Width="2" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="18.625" Y="6.191" />
+        <Point X="18.625" Y="8.467" />
+        <Point X="10.75" Y="8.467" />
+        <Point X="10.75" Y="10" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAABEACAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\Scripts\Spawn.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="activeBlock" />
+      <Field Name="spawnBrick" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TimeController">
+    <Position X="9" Y="3.5" Width="2.5" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="17.375" Y="6.191" />
+        <Point X="17.375" Y="7.396" />
+        <Point X="10.25" Y="7.396" />
+        <Point X="10.25" Y="6.146" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAiAAAAAAAAAAgAAAABEAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\TimeController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="bgcont" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="17.25" Y="5.5" Width="3.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
