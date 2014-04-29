@@ -18,7 +18,8 @@ public class TimeController : MonoBehaviour {
 	void Start () {
 		bgcont.b1 = true;
 		level = 1;
-		guiText.pixelOffset = new Vector2 (Screen.width/2 -300, Screen.height/2 -150);
+		guiText.pixelOffset = new Vector2 (250, 85);
+		guiText.fontSize = 20;
 	}
 	
 	// Update is called once per frame
@@ -28,8 +29,7 @@ public class TimeController : MonoBehaviour {
 	{
 		//Outputting the Time remaining on the gamescreen.
 		guiText.text = " " + (int)time;
-		guiText.fontSize = 20;
-
+	
 		//Our first if-statement that checks if we are on level 1.
 		if(level == 1){
 			speed.brickSpeed = 0.5f;

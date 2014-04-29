@@ -13,16 +13,17 @@ public class ScoreController : MonoBehaviour {
 	// Use this for initialization
 	void Start() 
 	{
-		guiText.pixelOffset = new Vector2 (Screen.width/2 -300, Screen.height/2 -50);
+		guiText.pixelOffset = new Vector2 (250, 220);
+		guiText.fontSize = 20;
+		guiText.color = Color.white;
 	}
 	
 	// Update is called once per frame
 	void Update() 
 	{
 		//Doing pretty stuff. 
-		guiText.color = Color.white;
 		guiText.text = " " + score;
-		guiText.fontSize = 20;
+
 
 		//If-statement looking for hasWon or hasGameover
 		//conditions. 

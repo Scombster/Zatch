@@ -18,13 +18,14 @@ public class ComboText : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		comboColor = GameObject.Find("Score").GetComponent<ScoreController>();
-		guiText.pixelOffset = new Vector2 (Screen.width/2 -300, Screen.height/2 -200);
+		guiText.pixelOffset = new Vector2 (250, 0);
+		//Setting font size
+		guiText.fontSize = 16;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//Setting font size
-		guiText.fontSize = 20;
+
 		//Looks after combos, if any - a sound will be played
 		if(combo == true){
 			audio.PlayOneShot(comboClip, 0.5F);
@@ -39,27 +40,27 @@ public class ComboText : MonoBehaviour {
 						break;
 
 				case 1:
-						guiText.text = "BLUE GIVES DOUBLE!";
+						guiText.text = "Blue = Double!";
 						guiText.color = Color.blue;
 						break;
 
 				case 2:
-						guiText.text = "GREEN GIVES DOUBLE!";
+						guiText.text = "Green = Double!";
 						guiText.color = Color.green;
 						break;
 
 				case 3:
-						guiText.text = "ORANGE GIVES DOUBLE!";
+						guiText.text = "Orange = Double!";
 						guiText.color = new Color32(255, 140, 0, 255);
 						break;
 
 				case 4:
-						guiText.text = "YELLOW GIVES DOUBLE!";
+						guiText.text = "Yellow = Double!";
 						guiText.color = Color.yellow;
 						break;
 
 				case 5:
-						guiText.text = "PURPLE GIVES DOUBLE!";
+						guiText.text = "PURPLE = DOUBLE!";
 						guiText.color = new Color32(128, 0, 128, 255);
 						break;
 		}

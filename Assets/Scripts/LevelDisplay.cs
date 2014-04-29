@@ -4,14 +4,13 @@ using System.Collections;
 public class LevelDisplay : MonoBehaviour {
 
 	private TimeController level;
-	private float width = 0 + (Screen.width/5);
 
 	// Use this for initialization
 	void Start () {
+		Screen.SetResolution (800, 600, true);
 		level = GameObject.Find("Timer").GetComponent<TimeController>();
 		guiText.fontSize = 20;
-		//guiText.pixelOffset = new Vector2 (Screen.width/2 -300, Screen.height/2 -275);
-		guiText.pixelOffset = new Vector2 (width, Screen.height/2 -275);
+		guiText.pixelOffset = new Vector2(250, -100);
 	}
 
 	// Update is called once per frame
