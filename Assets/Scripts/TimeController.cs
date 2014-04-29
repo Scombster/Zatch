@@ -22,9 +22,12 @@ public class TimeController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () 
+	
+
 	{
 		//Outputting the Time remaining on the gamescreen.
-		guiText.text = "Time Remaining: " + (int)time;
+		guiText.text = " " + (int)time;
+		guiText.fontSize = 20;
 
 		//Our first if-statement that checks if we are on level 1.
 		if(l1 == true){
